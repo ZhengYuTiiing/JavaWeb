@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         version="6.0">
+    <!--<welcome-file>这里的路径从根目录算起</welcome-file>
+    根目录就是web目录
+    但是最前面不用/,不要斜杠
+    -->
+    <welcome-file-list>
+<!--        <welcome-file>login.html</welcome-file>-->
+<!--        <welcome-file>page1/page2/hello.html</welcome-file>-->
+        <welcome-file>hahhah/weuot/qoiegh/wopwej/ss</welcome-file>
+    </welcome-file-list>
+    <servlet>
+        <servlet-name>welcomeServlet</servlet-name>
+        <servlet-class>com.cn.edu.szu.zyt.WelcomeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>welcomeServlet</servlet-name>
+        <url-pattern>/hahhah/weuot/qoiegh/wopwej/ss</url-pattern>
+    </servlet-mapping>
+</web-app>
