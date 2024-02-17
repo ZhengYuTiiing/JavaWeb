@@ -11,10 +11,11 @@ import java.io.PrintWriter;
 import java.sql.*;
 
 public class DeptListServlet extends HttpServlet {
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        doGet(req,resp);
-    }
+    //改成重定向了
+//    @Override
+//    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+//        doGet(req,resp);
+//    }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)

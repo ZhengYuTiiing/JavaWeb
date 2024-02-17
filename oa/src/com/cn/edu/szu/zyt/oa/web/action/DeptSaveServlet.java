@@ -27,7 +27,7 @@ public class DeptSaveServlet extends HttpServlet {
            conn=DBUtil.getConnection();
            String sql="insert into dept(deptno,dname,loc) values (?,?,?)";
            ps= conn.prepareStatement(sql);
-           //这个？？？从第一个第二个开始，1，2，3
+           //这个？？？从第一个第二个开始，1，2，3,下标是从1开始
            ps.setString(1,deptno);
            ps.setString(2,dname);
            ps.setString(3,loc);
@@ -38,9 +38,13 @@ public class DeptSaveServlet extends HttpServlet {
             DBUtil.close(conn,ps,rs);
         }
         if(count==1){
-            request.getRequestDispatcher("/dept/list").forward(request,response);
+
+            //request.getRequestDispatcher("/dept/list").forward(request,response);
+            //不用转发了，不然ListServlet中还要写doPost,这样改了ListServlet中不用写doPost
+            response.sendRedirect(request.getContextPath()+"/dept/list");
         }else {
-            request.getRequestDispatcher("/erroe.html").forward(request,response);
+            //request.getRequestDispatcher("/error.html").forward(request,response);
+            response.sendRedirect(request.getContextPath()+"/error.html");
         }
     }
 }

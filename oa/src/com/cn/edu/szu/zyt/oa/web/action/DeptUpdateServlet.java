@@ -38,10 +38,12 @@ public class DeptUpdateServlet extends HttpServlet {
             DBUtil.close(conn,ps,null);
         }
         if(count==1){
-            request.getRequestDispatcher("/dept/list").forward(request,response);
+            //request.getRequestDispatcher("/dept/list").forward(request,response);
+            response.sendRedirect(request.getContextPath()+"/dept/list");
         }
         else {
-            request.getRequestDispatcher("/error.html").forward(request,response);
+           // request.getRequestDispatcher("/error.html").forward(request,response);
+            response.sendRedirect(request.getContextPath()+"/error.html");
         }
     }
 }

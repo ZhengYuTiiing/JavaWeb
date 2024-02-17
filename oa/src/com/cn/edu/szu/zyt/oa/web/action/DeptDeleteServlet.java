@@ -45,10 +45,12 @@ public class DeptDeleteServlet extends HttpServlet {
         }
         if(count==1){
             //应该用重定向，现在还没学，先转发
-            request.getRequestDispatcher("/dept/list").forward(request,response);
+            //request.getRequestDispatcher("/dept/list").forward(request,response);
+            response.sendRedirect(request.getContextPath()+"/dept/list");
         }
         else {
-            request.getRequestDispatcher("/error.html").forward(request,response);
+          //  request.getRequestDispatcher("/error.html").forward(request,response);
+            response.sendRedirect(request.getContextPath()+"/error.html");
         }
     }
 }
