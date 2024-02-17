@@ -20,4 +20,13 @@
         <servlet-name>b</servlet-name>
         <url-pattern>/b</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>save</servlet-name>
+        <servlet-class>com.cn.edu.szu.zyt.StudentSaveServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>save</servlet-name>
+        <url-pattern>/save</url-pattern>
+    </servlet-mapping>
 </web-app>
