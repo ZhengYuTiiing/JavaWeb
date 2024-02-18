@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset='utf-8'>
+		<title>部门列表展示</title>
+	</head>
+	<body>
+		<script>
+			function del(dno){
+				var ok=window.confirm("是否确认删除?");
+				if(ok){
+					//JS中想服务器发起请求，四种方法，记得前端的路径带项目名
+					// document.location.href="请求路径";
+					// document.location="请求路径";
+					// window.location.href="请求路径";
+					// window.location="请求路径";
+					document.location.href="/oa/dept/delete?deptno="+dno;
+				}
+			}
+		</script>
+		<h1 align='center'>部门列表</h1>
+		<hr />
+		<table border='1px' align='center'width='40%'>
+			<tr>
+				<th>序号</th>
+				<th>部门编号</th>
+				<th>部门名称</th>
+				<th>操作</th>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>10</td>
+				<td>销售部</td>
+				<td>
+					<!--href='javascript:void(0)'表示仍然保留超链接的样子，点击不跳转-->
+					<!--希望点击的时候执行一段JS代码，不进行页面的跳转-->
+					<a href='javascript:void(0)' onclick='window.confirm('确认删除数据吗？')'>删除</a>
+					<a href='edit.html'>修改</a>
+					<a href='detail.html'>详情</a>
+				</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>20</td>
+				<td>销售部</td>
+				<td>
+					<!--href='javascript:void(0)'表示仍然保留超链接的样子，点击不跳转-->
+					<!--希望点击的时候执行一段JS代码，不进行页面的跳转-->
+					<a href='javascript:void(0)' onclick=del()>删除</a>
+					<a href='edit.html'>修改</a>
+					<a href='detail.html'>详情</a>
+				</td>
+			</tr>
+		</table>
+		<a href='add.html'>新增部门</a>
+	</body>
+</html>
