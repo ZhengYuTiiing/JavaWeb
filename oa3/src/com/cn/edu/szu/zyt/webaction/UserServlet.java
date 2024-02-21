@@ -6,6 +6,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -13,11 +14,35 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-@WebServlet("/user/login")
+@WebServlet(value = {"/user/login","/user/logout"})
 public class UserServlet extends HttpServlet {
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    protected void service(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String servletPath = request.getServletPath();
+        if("/user/logout".equals(servletPath)){
+            doExit(request,response);
+        }else if ("/user/login".equals(servletPath)){
+            doLogin(request,response);
+        }
+    }
+
+    private void doExit(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        //获取session对象，销毁session
+        HttpSession session = request.getSession(false);
+        if (session!=null){
+            //手动销毁session对象
+            session.invalidate();
+            response.sendRedirect(request.getContextPath());
+        }
+    }
+
+
+
+    protected void doLogin(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
         boolean success=false;
         String username = request.getParameter("username");
         String password = request.getParameter("password");
@@ -40,6 +65,8 @@ public class UserServlet extends HttpServlet {
             DBUtil.close(conn,ps,rs);
         }
         if(success){
+            HttpSession session = request.getSession();
+            session.setAttribute("username",username);
             response.sendRedirect(request.getContextPath()+"/dept/list");
         }else {
                 response.sendRedirect(request.getContextPath()+"/error.jsp");

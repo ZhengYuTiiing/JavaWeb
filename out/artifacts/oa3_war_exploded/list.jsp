@@ -9,6 +9,10 @@
 	<title>部门列表展示</title>
 </head>
 <body>
+<%--显示登录的用户名--%>
+<%--JSP有内置对象session，所以下一行可以直接用，但是你的最上面page要记住不能把session="false"了--%>
+<h3>欢迎<%=session.getAttribute("username")%></h3><br>
+<a href="<%=request.getContextPath()%>/user/logout">退出系统</a>
 <script>
 	function del(dno){
 		var ok=window.confirm("是否确认删除?");
@@ -17,6 +21,7 @@
 		}
 	}
 </script>
+
 <h1 align='center'>部门列表</h1>
 <hr />
 <table border='1px' align='center'width='40%'>

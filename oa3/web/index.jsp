@@ -1,4 +1,6 @@
 <%@page contentType="text/html;charset=UTF-8"%>
+<%--下面这行代码让访问JSP不创建session对象--%>
+<%@page session="false" %>
 <!DOCTYPE html>
 <html>
 	<head>
