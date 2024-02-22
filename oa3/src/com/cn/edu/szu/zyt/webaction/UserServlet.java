@@ -3,10 +3,7 @@ package com.cn.edu.szu.zyt.webaction;
 import com.cn.edu.szu.zyt.DBUtil;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
+import jakarta.servlet.http.*;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -67,6 +64,19 @@ public class UserServlet extends HttpServlet {
         if(success){
             HttpSession session = request.getSession();
             session.setAttribute("username",username);
+
+            String flag = request.getParameter("flag");
+            if("1".equals(flag)){
+                Cookie cookie=new Cookie("username",username);
+                Cookie cookie1=new Cookie("password",password);
+                cookie.setMaxAge(60*60*24*10);
+                cookie1.setMaxAge(60*60*24*10);
+                cookie1.setPath(request.getContextPath());
+                cookie.setPath(request.getContextPath());
+                response.addCookie(cookie);
+                response.addCookie(cookie1);
+            }
+
             response.sendRedirect(request.getContextPath()+"/dept/list");
         }else {
                 response.sendRedirect(request.getContextPath()+"/error.jsp");
