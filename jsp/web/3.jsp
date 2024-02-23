@@ -1,4 +1,4 @@
-<%@page contentType="text/html; UTF-8" %>
+<%@page contentType="text/html; charset=UTF-8" %>
 <%--这种脚本块是翻译到service方法中--%>
 <%
     System.out.println("hello jsp");
