@@ -6,10 +6,9 @@
 		<title>新增部门</title>
 	</head>
 	<body>
-	<h3>欢迎${username}</h3><br>
 		<h1>新增部门</h1>
 		<hr />
-		<form action="${pageContext.request.contextPath}/dept/save" method="post">
+		<form action="<%=request.getContextPath()%>/dept/save" method="post">
 			部门编号：<input type="text" name="deptno" id="" /><br />
 			部门名称：<input type="text" name="dname" id="" /><br />
 			部门地址：<input type="text" name="loc" id="" /><br />
