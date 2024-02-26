@@ -30,6 +30,8 @@ public class WelcomeServlet extends HttpServlet {
                 }
             }
         }
+        HttpSession session1 = request.getSession();
+       // if()
         if(username!=null&&password!=null){
             //验证有户吗密码是否正确
             Connection conn=null;

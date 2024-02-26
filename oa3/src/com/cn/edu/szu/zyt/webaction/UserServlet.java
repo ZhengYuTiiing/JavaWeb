@@ -31,8 +31,28 @@ public class UserServlet extends HttpServlet {
         if (session!=null){
             //手动销毁session对象
             session.invalidate();
+//            Cookie[] cookies = request.getCookies();
+//            if(cookies!=null){
+//                for (Cookie cookie : cookies) {
+//                    cookie.setMaxAge(0);
+//                        cookie.setPath(request.getContextPath());
+//                        response.addCookie(cookie);
+//                }
+//            }
+//           response.sendRedirect(request.getContextPath());
+            Cookie cookie1 = new Cookie("username", "");
+            cookie1.setMaxAge(0);
+            cookie1.setPath(request.getContextPath());
+
+            Cookie cookie2 = new Cookie("password", "");
+            cookie2.setMaxAge(0);
+            cookie2.setPath(request.getContextPath());
+
+            response.addCookie(cookie1);
+            response.addCookie(cookie2);
             response.sendRedirect(request.getContextPath());
         }
+
     }
 
 

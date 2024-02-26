@@ -121,6 +121,7 @@ public class DeptServlet extends HttpServlet {
      */
     private void doDetail(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException{
+        System.out.println("进来了");
         Dept dept=new Dept();
         String dno = request.getParameter("dno");
         Connection conn=null;

@@ -8,7 +8,7 @@
 <head>
 	<meta charset='utf-8'>
 	<title>部门列表展示</title>
-	<base href="">
+	<base href="http://localhost:8080/oa3/">
 </head>
 <body>
 <%--显示登录的用户名--%>
