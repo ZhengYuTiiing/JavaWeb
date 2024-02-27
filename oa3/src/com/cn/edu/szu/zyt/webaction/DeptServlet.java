@@ -23,8 +23,8 @@ public class DeptServlet extends HttpServlet {
     protected void service(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //加上false,没有session的的话也不创建，返回null
-        HttpSession session = request.getSession(false);
-        if(session!=null&&session.getAttribute("username")!=null){
+//        HttpSession session = request.getSession(false);
+//        if(session!=null&&session.getAttribute("username")!=null){
             String servletPath = request.getServletPath();
             if ("/dept/list".equals(servletPath)){
                 doList(request,response);
@@ -38,9 +38,9 @@ public class DeptServlet extends HttpServlet {
             }else if ("/dept/modify".equals(servletPath)) {
                 doModify(request,response);
             }
-        }else {
-            response.sendRedirect(request.getContextPath()+"/index.jsp");
-        }
+//        }else {
+//            response.sendRedirect(request.getContextPath()+"/index.jsp");
+//        }
     }
 
     /**

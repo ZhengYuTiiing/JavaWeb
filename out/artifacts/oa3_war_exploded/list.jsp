@@ -8,13 +8,14 @@
 <head>
 	<meta charset='utf-8'>
 	<title>部门列表展示</title>
-	<base href="http://localhost:8080/oa3/">
+<%--	<base href="http://localhost:8080/oa3/">--%>
+	<base href="${pageContext.request.scheme}://${pageContext.request.serverName}:${pageContext.request.serverPort}${pageContext.request.contextPath}/">
 </head>
 <body>
 <%--显示登录的用户名--%>
 <%--JSP有内置对象session，所以下一行可以直接用，但是你的最上面page要记住不能把session="false"了--%>
 <h3>欢迎${username}</h3><br>
-<a href="${pageContext.request.contextPath}/user/logout">退出系统</a>
+<a href="user/logout">退出系统</a>
 <script>
 	function del(dno){
 		var ok=window.confirm("是否确认删除?");
@@ -43,8 +44,8 @@
 				<!--href='javascript:void(0)'表示仍然保留超链接的样子，点击不跳转-->
 				<!--希望点击的时候执行一段JS代码，不进行页面的跳转-->
 				<a href='javascript:void(0)' onclick='del(${dept.deptno})'>删除</a>
-				<a href='${pageContext.request.contextPath}/dept/detail?f=m&dno=${dept.deptno}'>修改</a>
-				<a href='${pageContext.request.contextPath}/dept/detail?f=d&dno=${dept.deptno}'>详情</a>
+				<a href='dept/detail?f=m&dno=${dept.deptno}'>修改</a>
+				<a href='dept/detail?f=d&dno=${dept.deptno}'>详情</a>
 			</td>
 		</tr>
 
